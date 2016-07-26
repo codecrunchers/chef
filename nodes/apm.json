@@ -9,6 +9,11 @@
       "app_version": "FROM_ENV",
       "app_git_repo": "git repo",
       "app_install_date": "now?"
+    },
+    "java": {
+      "version": "1.8.0_101",
+      "src": "jdk-8u101-linux-x64.tar.gz",
+      "dest": "/apps"
     }
   },
   "default": {

@@ -1,0 +1,23 @@
+# .kitchen.yml
+
+---
+driver:
+  name: docker
+
+
+platforms:
+  - name: centos-7.0
+
+suites:
+  - name: source
+    run_list:
+      - recipe[java]
+    attributes:
+      vim:
+        install_method: "source"
+  - name: package
+    run_list:
+      - recipe[java]
+    attributes:
+      vim:
+        install_method: "package"
