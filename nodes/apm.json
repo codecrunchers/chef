@@ -17,6 +17,16 @@
     }
   },
   "default": {
+    "java": {
+      "version": "1.8.0_101",
+      "src": "jdk-8u101-linux-x64.tar.gz",
+      "dest": "/apps"
+    },
+    "tomcat": {
+      "version": "8.0.36",
+      "src": "apache-tomcat-8.0.36.tar.gz",
+      "dest": "/apps"
+    },
     "apm": {
       "dest_war": "/usr/local/tomcat/webapps/ROOT.war",
       "src_war": "http://10.114.10.200:8081/nexus/content/repositories/chef_test/built_artifacts/ROOT.war",
@@ -167,17 +177,13 @@
           "size": "63988",
           "refcount": "1"
         },
-        "fglrx": {
-          "size": "13510274",
-          "refcount": "104"
+        "joydev": {
+          "size": "17381",
+          "refcount": "0"
         },
         "snd_hda_codec_hdmi": {
           "size": "46368",
           "refcount": "1"
-        },
-        "joydev": {
-          "size": "17381",
-          "refcount": "0"
         },
         "intel_rapl": {
           "size": "18773",
@@ -195,52 +201,84 @@
           "size": "13435",
           "refcount": "0"
         },
+        "fglrx": {
+          "size": "13510274",
+          "refcount": "119"
+        },
         "kvm_intel": {
           "size": "143187",
           "refcount": "0"
+        },
+        "snd_hda_codec_realtek": {
+          "size": "65904",
+          "refcount": "1"
         },
         "kvm": {
           "size": "455843",
           "refcount": "1"
         },
-        "snd_hda_codec_realtek": {
-          "size": "65904",
+        "snd_hda_intel": {
+          "size": "56611",
+          "refcount": "4"
+        },
+        "snd_hda_codec": {
+          "size": "193017",
+          "refcount": "3"
+        },
+        "snd_hwdep": {
+          "size": "13602",
           "refcount": "1"
         },
         "crct10dif_pclmul": {
           "size": "14289",
           "refcount": "0"
         },
+        "snd_pcm": {
+          "size": "102099",
+          "refcount": "3"
+        },
         "crc32_pclmul": {
           "size": "13113",
           "refcount": "0"
+        },
+        "snd_page_alloc": {
+          "size": "18710",
+          "refcount": "2"
         },
         "aesni_intel": {
           "size": "55624",
           "refcount": "0"
         },
-        "dm_multipath": {
-          "size": "22873",
+        "snd_seq_midi": {
+          "size": "13324",
           "refcount": "0"
         },
         "aes_x86_64": {
           "size": "17131",
           "refcount": "1"
         },
+        "snd_seq_midi_event": {
+          "size": "14899",
+          "refcount": "1"
+        },
+        "dm_multipath": {
+          "size": "22873",
+          "refcount": "0"
+        },
         "lrw": {
           "size": "13286",
           "refcount": "1"
         },
-        "scsi_dh": {
-          "size": "14882",
-          "refcount": "1"
-        },
-        "snd_hda_intel": {
-          "size": "56611",
-          "refcount": "6"
-        },
         "gf128mul": {
           "size": "14951",
+          "refcount": "1"
+        },
+        "snd_rawmidi": {
+          "size": "30731",
+          "refcount": "1"
+        },
+        "scsi_dh": {
+          "size": "14882",
           "refcount": "1"
         },
         "glue_helper": {
@@ -251,88 +289,60 @@
           "size": "13597",
           "refcount": "1"
         },
-        "snd_hda_codec": {
-          "size": "193017",
-          "refcount": "3"
-        },
-        "snd_seq_midi": {
-          "size": "13324",
-          "refcount": "0"
+        "snd_seq": {
+          "size": "61616",
+          "refcount": "2"
         },
         "cryptd": {
           "size": "20359",
-          "refcount": "2"
-        },
-        "snd_seq_midi_event": {
-          "size": "14899",
-          "refcount": "1"
-        },
-        "snd_rawmidi": {
-          "size": "30731",
-          "refcount": "1"
-        },
-        "snd_hwdep": {
-          "size": "13602",
-          "refcount": "1"
-        },
-        "serio_raw": {
-          "size": "13462",
-          "refcount": "0"
-        },
-        "snd_pcm": {
-          "size": "102099",
-          "refcount": "4"
-        },
-        "snd_seq": {
-          "size": "61616",
           "refcount": "2"
         },
         "snd_seq_device": {
           "size": "14497",
           "refcount": "3"
         },
-        "snd_page_alloc": {
-          "size": "18710",
+        "snd_timer": {
+          "size": "29549",
           "refcount": "2"
         },
         "amd_iommu_v2": {
           "size": "19054",
           "refcount": "1"
         },
-        "snd_timer": {
-          "size": "29549",
-          "refcount": "2"
-        },
         "snd": {
           "size": "69416",
-          "refcount": "22"
+          "refcount": "19"
+        },
+        "intel_smartconnect": {
+          "size": "12619",
+          "refcount": "0"
+        },
+        "serio_raw": {
+          "size": "13462",
+          "refcount": "0"
+        },
+        "soundcore": {
+          "size": "12680",
+          "refcount": "1"
+        },
+        "mac_hid": {
+          "size": "13205",
+          "refcount": "0"
         },
         "mei_me": {
           "size": "18627",
           "refcount": "0"
         },
-        "shpchp": {
-          "size": "37032",
+        "lpc_ich": {
+          "size": "21080",
           "refcount": "0"
         },
         "mei": {
           "size": "82276",
           "refcount": "1"
         },
-        "soundcore": {
-          "size": "12680",
-          "refcount": "1"
-        },
-        "lpc_ich": {
-          "size": "21080",
-          "refcount": "0"
-        },
-        "mac_hid": {
-          "size": "13205",
-          "refcount": "0"
-        },
-        "intel_smartconnect": {
-          "size": "12619",
+        "shpchp": {
+          "size": "37032",
           "refcount": "0"
         },
         "parport_pc": {
@@ -343,13 +353,13 @@
           "size": "17671",
           "refcount": "0"
         },
-        "nls_iso8859_1": {
-          "size": "12713",
-          "refcount": "1"
-        },
         "lp": {
           "size": "17759",
           "refcount": "0"
+        },
+        "nls_iso8859_1": {
+          "size": "12713",
+          "refcount": "1"
         },
         "parport": {
           "size": "42348",
@@ -463,7 +473,7 @@
           },
           "state": "up",
           "arp": {
-            "172.17.0.1": "02:42:6c:ca:ac:e2"
+            "172.17.0.1": "02:42:7a:4f:88:ee"
           },
           "routes": [
             {
@@ -495,15 +505,15 @@
         "interfaces": {
           "lo": {
             "rx": {
-              "bytes": "694078",
-              "packets": "634",
+              "bytes": "50235",
+              "packets": "44",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
             },
             "tx": {
-              "bytes": "694078",
-              "packets": "634",
+              "bytes": "50235",
+              "packets": "44",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
@@ -512,15 +522,15 @@
           },
           "eth0": {
             "rx": {
-              "bytes": "19279",
-              "packets": "118",
+              "bytes": "8207",
+              "packets": "55",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
             },
             "tx": {
-              "bytes": "2538",
-              "packets": "35",
+              "bytes": "900",
+              "packets": "12",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
@@ -1288,66 +1298,66 @@
       "total": 8,
       "real": 1
     },
-    "uptime_seconds": 10664,
-    "uptime": "2 hours 57 minutes 44 seconds",
-    "idletime_seconds": 80792,
-    "idletime": "22 hours 26 minutes 32 seconds",
+    "uptime_seconds": 13062,
+    "uptime": "3 hours 37 minutes 42 seconds",
+    "idletime_seconds": 99172,
+    "idletime": "1 day 03 hours 32 minutes 52 seconds",
     "ip6address": "fe80::42:acff:fe11:2",
     "memory": {
       "swap": {
-        "cached": "148kB",
+        "cached": "10624kB",
         "total": "4672508kB",
-        "free": "4671464kB"
+        "free": "4568152kB"
       },
       "total": "8139628kB",
-      "free": "304444kB",
-      "buffers": "589196kB",
-      "cached": "2444888kB",
-      "active": "3775376kB",
-      "inactive": "2333108kB",
-      "dirty": "104kB",
+      "free": "181056kB",
+      "buffers": "107964kB",
+      "cached": "2340176kB",
+      "active": "4171676kB",
+      "inactive": "2366980kB",
+      "dirty": "348kB",
       "writeback": "0kB",
-      "anon_pages": "3083524kB",
-      "mapped": "667968kB",
-      "slab": "1259812kB",
-      "slab_reclaimable": "1178772kB",
-      "slab_unreclaim": "81040kB",
-      "page_tables": "65692kB",
+      "anon_pages": "4091476kB",
+      "mapped": "524608kB",
+      "slab": "920000kB",
+      "slab_reclaimable": "849812kB",
+      "slab_unreclaim": "70188kB",
+      "page_tables": "61052kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
       "commit_limit": "8742320kB",
-      "committed_as": "12110588kB",
+      "committed_as": "12876080kB",
       "vmalloc_total": "34359738367kB",
       "vmalloc_used": "106888kB",
-      "vmalloc_chunk": "34359599016kB"
+      "vmalloc_chunk": "34359611528kB"
     },
     "filesystem": {
       "rootfs": {
         "kb_size": "95990540",
-        "kb_used": "73930988",
-        "kb_available": "17160380",
-        "percent_used": "82%",
+        "kb_used": "77823764",
+        "kb_available": "13267604",
+        "percent_used": "86%",
         "mount": "/",
         "total_inodes": "6111232",
-        "inodes_used": "2842369",
-        "inodes_available": "3268863",
-        "inodes_percent_used": "47%"
+        "inodes_used": "3060077",
+        "inodes_available": "3051155",
+        "inodes_percent_used": "51%"
       },
       "none": {
         "kb_size": "95990540",
-        "kb_used": "73930988",
-        "kb_available": "17160380",
-        "percent_used": "82%",
+        "kb_used": "77823764",
+        "kb_available": "13267604",
+        "percent_used": "86%",
         "mount": "/",
         "total_inodes": "6111232",
-        "inodes_used": "2842369",
-        "inodes_available": "3268863",
-        "inodes_percent_used": "47%",
+        "inodes_used": "3060077",
+        "inodes_available": "3051155",
+        "inodes_percent_used": "51%",
         "fs_type": "aufs",
         "mount_options": [
           "rw",
           "relatime",
-          "si=bf91c969ee659fac",
+          "si=86f81529726ac07",
           "dio"
         ]
       },
@@ -1370,13 +1380,13 @@
       },
       "/dev/sdb1": {
         "kb_size": "240178228",
-        "kb_used": "137529192",
-        "kb_available": "90425624",
+        "kb_used": "138170376",
+        "kb_available": "89784440",
         "percent_used": "61%",
-        "mount": "/chef-repo",
+        "mount": "/repos",
         "total_inodes": "15261696",
-        "inodes_used": "935180",
-        "inodes_available": "14326516",
+        "inodes_used": "939227",
+        "inodes_available": "14322469",
         "inodes_percent_used": "7%",
         "fs_type": "ext4",
         "mount_options": [
@@ -1387,14 +1397,14 @@
       },
       "/dev/sda2": {
         "kb_size": "95990540",
-        "kb_used": "73930988",
-        "kb_available": "17160380",
-        "percent_used": "82%",
+        "kb_used": "77823764",
+        "kb_available": "13267604",
+        "percent_used": "86%",
         "mount": "/etc/hosts",
         "total_inodes": "6111232",
-        "inodes_used": "2842369",
-        "inodes_available": "3268863",
-        "inodes_percent_used": "47%",
+        "inodes_used": "3060077",
+        "inodes_available": "3051155",
+        "inodes_percent_used": "51%",
         "fs_type": "ext4",
         "mount_options": [
           "rw",
@@ -1543,9 +1553,9 @@
 
       }
     },
-    "hostname": "5185457b9fbd",
-    "machinename": "5185457b9fbd",
-    "fqdn": "5185457b9fbd",
+    "hostname": "cb718f82e1c9",
+    "machinename": "cb718f82e1c9",
+    "fqdn": "cb718f82e1c9",
     "domain": null,
     "command": {
       "ps": "ps -ef"
@@ -2109,18 +2119,21 @@
       }
     },
     "cloud_v2": null,
-    "ohai_time": 1469478024.211315,
+    "ohai_time": 1469570451.0948462,
     "init_package": "bash",
     "recipes": [
+      "apm",
+      "apm::run",
       "apm::default",
-      "apm::version"
+      "java::default",
+      "tomcat::default"
     ],
     "roles": [
 
     ]
   },
   "run_list": [
-    "recipe[apm::default]",
-    "recipe[java]"
+    "recipe[apm]",
+    "recipe[apm::run]"
   ]
 }

@@ -11,7 +11,7 @@ bash "install_java" do
   user "root"
   cwd "/repos"
   code <<-EOH
-    tar -zxf #{node[:java][:src]} -C  'jdk-#{node[:java][:version]}'
-    (mkdir #{node[:java][:dest]}/ && mv  'jdk-#{node[:java][:version]}' #{node[:java][:dest]})
+    mkdir -p #{node[:java][:dest]}
+    tar -zxf #{node[:java][:src]} -C  #{node[:java][:dest]}
   EOH
 end
