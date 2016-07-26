@@ -22,9 +22,8 @@
 #
 
 name             'apm'
-maintainer       'Djuri Baars'
-maintainer_email 'dsbaars@gmail.com'
-license          'Apache 2.0'
-description      'Installs/Configures atom.io packages via apm'
+maintainer       'Realex'
+maintainer_email 'info@realex.com'
+description      'Install APM Application'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'

@@ -21,6 +21,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-node['apm']['packages'].each do |package|
-  apm_package package
-end
+include_recipe "apm::version"
+#node['apm']['packages'].each do |package|
+#  apm_package package
+#end
