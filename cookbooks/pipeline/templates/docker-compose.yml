@@ -1,0 +1,31 @@
+version: '2'
+services:
+    app:
+        image: realex/demo-app
+        hostname: app
+        expose:
+            - "8080"
+        ports:
+          - "8080:8080"
+        links:
+          - fakeendpoint
+          - dashboard
+
+    fakeendpoint:
+        build: fakeendpoint
+        hostname: fakeendpoint
+        expose:
+            - "8080"
+        ports:
+            - "7070:8080"
+        volumes:
+            - ./fakeendpoint/files:/wiremock/__files/
+            - ./fakeendpoint/mappings:/wiremock/mappings/
+    dashboard:
+        build: hystrixdash
+        expose:
+            - "7979"
+        ports:
+            - "9090:7979"
+
+
