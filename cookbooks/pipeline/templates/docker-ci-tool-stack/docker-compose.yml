@@ -5,14 +5,17 @@ networks:
     driver: bridge
 
 services:
- nexus:
-  build: ./nexus
-  ports:
-    - "18081:8081"
-  networks:
-    - prodnetwork
+    # nexus:
+    #  build: ./nexus
+    #  ports:
+    #    - "18081:8081"
+    #  networks:
+    #    - prodnetwork
 
  jenkins:
+  mem_limit: 800m
+  memswap_limit: 500m
+  privileged: true
   build: jenkins-ci
   hostname: jenkins
   ports:
@@ -21,12 +24,11 @@ services:
     - prodnetwork
   volumes:
       - ./jenkins-ci/JENKINS_HOME:/var_jenkins/home
-      - ./jenkins-ci/JENKINS_REF:/usr/share/jenkins
       #    - /var/run/docker.sock:/var/run/docker.sock
       #    - /usr/local/bin/docker:/usr/bin/docker
       #    - /opt/jenkins/:/var/lib/jenkins/
   depends_on:
-    - nexus
+      #    - nexus
     - gitlab
     - sonar
   environment:
@@ -47,6 +49,9 @@ services:
    - SONARQUBE_JDBC_URL=jdbc:postgresql://sonardb:5432/sonar
 
  sonardb:
+  mem_limit: 800m
+  memswap_limit: 500m
+  privileged: true
   networks:
     - prodnetwork
   image: postgres
@@ -57,7 +62,11 @@ services:
   volumes:
     - /opt/postgres/data:/var/lib/postgresql/data
 
+
  gitlab:
+  mem_limit: 800m
+  memswap_limit: 500m
+  privileged: true
   image: gitlab/gitlab-ce:8.12.6-ce.0
   restart: always
   hostname: 'gitlab'
