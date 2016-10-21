@@ -1,0 +1,58 @@
+stage('Checkout'){
+    node {
+        checkout scm
+            mvn  'clean verify'
+    }
+}
+
+stage('Compile') {
+    node {
+        checkout scm
+            mvn  'clean test -Dspring.profiles.active=unit-test'
+    }
+}
+
+stage('QA') {
+    node {
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+
+    }
+}
+
+stage('Staging 1 - QA Evaluation') {
+    node {
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+
+    }
+}
+milestone label: 'QA', ordinal: 1
+
+
+stage('Security') {
+    node {
+    }
+}
+
+stage('Upload Artefact') {
+    node{}
+}
+
+
+milestone label: 'Security', ordinal: 2
+
+input 'Are you sure - Deploy To Staging?'
+
+stage('Deploy') {
+    node {
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+        //      mvn  'clean package -Dspring.profiles.active=qa'
+
+    }
+}
+
+//Fns
+def mvn(args) {
+    sh "/usr/local/maven//bin/mvn ${args}"
+}
