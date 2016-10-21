@@ -13,13 +13,15 @@ services:
     - prodnetwork
 
  jenkins:
-  build: ./jenkins
+  build: jenkins-ci
   hostname: jenkins
   ports:
     - "18080:8080"
   networks:
     - prodnetwork
-#  volumes:
+  volumes:
+      - ./jenkins-ci/JENKINS_HOME:/var_jenkins/home
+      - ./jenkins-ci/JENKINS_REF:/usr/share/jenkins
       #    - /var/run/docker.sock:/var/run/docker.sock
       #    - /usr/local/bin/docker:/usr/bin/docker
       #    - /opt/jenkins/:/var/lib/jenkins/
@@ -51,6 +53,7 @@ services:
   environment:
    - POSTGRES_USER=sonar
    - POSTGRES_PASSWORD=sonar
+   - SONARQUBE_HOME:/home/alan/devel/dockervolumes/sonar
   volumes:
     - /opt/postgres/data:/var/lib/postgresql/data
 

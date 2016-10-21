@@ -24,9 +24,9 @@ ENV SONARQUBE_JDBC_USERNAME sonar
 ENV SONARQUBE_JDBC_PASSWORD sonar
 ENV SONARQUBE_JDBC_URL jdbc:h2:tcp://localhost:9092/sonar
 
-ENV SONAR_VERSION 5.1.2
+ENV SONAR_VERSION 5.6.3
 
-ENV SONAR_DOWNLOAD_URL https://sonarsource.bintray.com/Distribution
+ENV SONAR_DOWNLOAD_URL https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-$SONAR_VERSION
 
 # pub   2048R/D26468DE 2015-05-25
 #      Key fingerprint = F118 2E81 C792 9289 21DB  CAB4 CFCA 4A29 D264 68DE
@@ -36,8 +36,8 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys F1182E81C792928921DBC
 
 RUN set -x \
 	&& cd /opt \
-	&& curl -o sonarqube.zip -fSL http://downloads.sonarsource.com/sonarqube/sonarqube-$SONAR_VERSION.zip \
-	&& curl -o sonarqube.zip.asc -fSL http://downloads.sonarsource.com/sonarqube/sonarqube-$SONAR_VERSION.zip.asc \
+	&& curl -o sonarqube.zip -fSL $SONAR_DOWNLOAD_URL.zip \
+	&& curl -o sonarqube.zip.asc -fSL $SONAR_DOWNLOAD_URL.zip.asc \
 	&& gpg --verify sonarqube.zip.asc \
 	&& unzip sonarqube.zip \
 	&& mv sonarqube-$SONAR_VERSION sonarqube \
@@ -46,9 +46,10 @@ RUN set -x \
 
 # Installing Plugins
 RUN cd /opt/sonarqube/extensions/plugins/ \
-  && curl -o sonar-java-plugin-3.5.jar -fSL $SONAR_DOWNLOAD_URL/sonar-java-plugin/sonar-java-plugin-3.5.jar \
-  && curl -o sonar-web-plugin-2.4.jar -fSL $SONAR_DOWNLOAD_URL/sonar-web-plugin/sonar-web-plugin-2.4.jar \
-  && curl -o sonar-scm-git-plugin-1.1.jar -fSL http://downloads.sonarsource.com/plugins/org/codehaus/sonar-plugins/sonar-scm-git-plugin/1.1/sonar-scm-git-plugin-1.1.jar
+  && curl -o sonar-java-plugin-4.2.1.6791.jar -fSL https://sonarsource.bintray.com/Distribution/sonar-java-plugin/sonar-java-plugin-4.2.1.6971.jar \
+  && curl -o sonar-web-plugin-2.5.0.476.jar  -fSL https://sonarsource.bintray.com/Distribution/sonar-web-plugin/sonar-web-plugin-2.5.0.476.jar \
+  && curl -o sonar-scm-git-plugin-1.2.jar -fSL https://sonarsource.bintray.com/Distribution/sonar-scm-git-plugin/sonar-scm-git-plugin-1.2.jar \
+  && curl -o sonar-dependency-check-plugin-1.0.3.jar -fSL https://github.com/stevespringett/dependency-check-sonar-plugin/releases/download/sonar-dependency-check-1.0.3/sonar-dependency-check-plugin-1.0.3.jar
 
 VOLUME ["$SONARQUBE_HOME/data", "$SONARQUBE_HOME/extensions"]
 
